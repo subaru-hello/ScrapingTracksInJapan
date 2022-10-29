@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 # 10から15までループさせる
 
-url = 'https://www.homemate-research-athletic-field.com/14/list/'
+url = "https://www.homemate-research-athletic-field.com/14/list/"
 
 response = requests.get(url)
 # track_name
@@ -24,14 +24,14 @@ open_times = []
 hurdle_available = []
 
 # name and address
-soup = BeautifulSoup(response.text, 'html.parser')
-for element in soup.findAll(attrs={'class': 'fa_ttl'}):
-    name = element.find('a')
+soup = BeautifulSoup(response.text, "html.parser")
+for element in soup.findAll(attrs={"class": "fa_ttl"}):
+    name = element.find("a")
     if name not in results:
         track_names.append(name.text)
-for b in soup.findAll(attrs={'class': 'fa_address'}):
+for b in soup.findAll(attrs={"class": "fa_address"}):
     name2 = b.contents[3]
-    track_address_virtual.append(name2.text.strip('\t/\n'))
+    track_address_virtual.append(name2.text.strip("\t/\n"))
 
 other_result_length = len(track_address_virtual)
 
@@ -49,5 +49,13 @@ for i in range(0, other_result_length):
 
 
 # output to csv
-df = pd.DataFrame({'Names': track_names, 'Address': track_address, 'OpenHour': open_times, 'EntranceFee': entrance_fee, 'HurdleAvailablity': hurdle_available})
-df.to_csv('results.csv', index=False, encoding='utf-8')
+df = pd.DataFrame(
+    {
+        "Names": track_names,
+        "Address": track_address,
+        "OpenHour": open_times,
+        "EntranceFee": entrance_fee,
+        "HurdleAvailablity": hurdle_available,
+    }
+)
+df.to_csv("results.csv", index=False, encoding="utf-8")
