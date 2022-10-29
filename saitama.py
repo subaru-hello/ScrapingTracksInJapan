@@ -23,6 +23,7 @@ for i in range(0, other_result_length):
     if i % 2 == 0:
         other_results.append(other_results_virtual[i])
 
+prefecture = ['saitama'] * len(other_results)
 
-df = pd.DataFrame({'Names': results, 'Address': other_results})
+df = pd.DataFrame({'Names': results, 'Address': other_results, 'Prefecture': prefecture})
 df.to_csv('saitama_tracks.csv', index=False, encoding='utf-8')
