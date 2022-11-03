@@ -28,10 +28,11 @@ workbook = gsc.open_by_key(SPREADSHEET_KEY)
 prefecture_nanes = ["kanagawa", "tokyo", "chiba", "saitama", "gunma"]
 for prefecture_name in prefecture_nanes:
 # csv_pathの検索
-  csv_path = "{0}_tracks.csv".format(prefecture_name)
+  csv_path = "./csvs/{0}_tracks.csv".format(prefecture_name)
 
-# シートの検索
+# シートの作成＆検索
   workbook.add_worksheet(title=prefecture_name, rows=30, cols=30)
+
   new_worksheet = workbook.worksheet(prefecture_name)
   track_data= []
 

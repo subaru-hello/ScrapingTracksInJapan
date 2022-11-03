@@ -28,4 +28,4 @@ prefecture = ["gunma"] * len(other_results)
 df = pd.DataFrame(
     {"Names": results, "Address": other_results, "Prefecture": prefecture}
 )
-df.to_csv("gunma_tracks.csv", index=False, encoding="utf-8")
+df.to_csv("./csvs/gunma_tracks.csv", index=False, encoding="utf-8")
