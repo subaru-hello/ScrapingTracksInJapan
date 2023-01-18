@@ -1,4 +1,5 @@
 # ScrapingTracksInJapan
+https://github.com/subaru-hello/TracksForPrivateAthleteDB で使用する競技場データを収集するためのリポジトリになります。
 ### データ収集方法
 pythonを用いてデータを収集しました。<br/>
 PDFで個人向けに開放されている日を管理している市区町村が多く存在していたため、サイトからPDFを取得し、CSVに書き起こす作業をpythonで実施しました。<br/>
